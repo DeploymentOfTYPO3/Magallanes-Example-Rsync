@@ -1,0 +1,22 @@
+#dev
+deployment:
+  strategy: rsync
+  user: www
+  from: ./.mage/artifact/
+  to: /var/www/deploy
+  http-frontend: 'http://your-url.com/'
+  document-root: '/var/www/html'
+releases:
+  enabled: true
+  max: 5
+  symlink: current
+  directory: releases
+hosts:
+  - "your-url.com"
+tasks:
+  pre-deploy:
+    - typo3-artifact
+  on-deploy:
+  post-release:
+    - typo3-release
+  post-deploy:

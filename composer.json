@@ -1,0 +1,34 @@
+{
+  "description": "Deployment example of TYPO3 CMS with Magallanes using rsync",
+  "name": "DeploymentOfTypo3/Magallanes-Example-Rsync",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://composer.typo3.org/"
+    },
+    {
+      "type": "git",
+      "url": "git@github.com:DeploymentOfTypo3/MagallanesTasks.git"
+    }
+  ],
+  "require": {
+    "typo3/cms": "^7.6.0",
+    "DeploymentOfTypo3/MagallanesTasks": "dev-master",
+    "helhum/typo3-console": "^1.2.0",
+    "georgringer/news": "^4.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8.0",
+    "squizlabs/php_codesniffer": "^2.3.4"
+  },
+  "extra": {
+    "typo3/class-alias-loader": {
+      "autoload-case-sensitivity": true
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "bin-dir": "bin/",
+    "preferred-install": "dist"
+  }
+}

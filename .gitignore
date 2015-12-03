@@ -1,18 +1,51 @@
-## TYPO3 v4
-# Ignore serveral upload and file directories.
-/fileadmin/user_upload/
-/fileadmin/_temp_/
-/uploads/
-# Ignore cache
-/typo3conf/temp_CACHED*
-/typo3conf/temp_fieldInfo.php
-# Ignore local config which overrides typo3 config.
-# You should include your local stuff with `@include('localconf_local.php');` at the end of localconf.php.
-# See http://stackoverflow.com/questions/11905360/how-best-to-manage-typo3-installations-using-git for details.
-/typo3conf/localconf_local.php
-# Ignore system folders, you should have them symlinked.
-# If not comment out the following two entries.
+
+# General
+# -----------------------------------------------------------------------------
+.idea/
+.sonar/
+.vagrant
+atlassian-ide-plugin.xml
+composer.phar
+
+# Core
+# -----------------------------------------------------------------------------
+/index.php
 /typo3
-/t3lib
-# Ignore temp directory.
+/typo3_src
+/Packages/
+/typo3conf/Documentation
+/typo3conf/deprecation_*
+/typo3conf/LocalConfiguration.php
+/typo3conf/ENABLE_INSTALL_TOOL
+/typo3conf/ext/installToolTest_*
+/bin/
+/vendor/
+
+# Customer data
+# -----------------------------------------------------------------------------
+/fileadmin/
 /typo3temp/
+/uploads/
+
+# Debug
+# -----------------------------------------------------------------------------
+/phpinfo.php
+/info.php
+/i.php
+/tests/
+/test/
+/*.md
+!/README.md
+/*.sh
+/typo3conf/AdditionalConfiguration_custom.php
+/typo3conf/ext/theme/Configuration/TypoScript/Custom/custom_constants.txt
+
+# Extensions
+# -----------------------------------------------------------------------------
+/typo3conf/ext/news/
+/typo3conf/ext/typo3_console/
+
+# Deployment
+# -----------------------------------------------------------------------------
+/.mage/artifact
+/.mage/logs/log-*

@@ -1,0 +1,7 @@
+# global settings
+name: Deployment example
+email: dev@example.org
+notifications: false
+logging: true
+maxlogs: 5
+ssh_needs_tty: false
