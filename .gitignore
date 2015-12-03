@@ -34,8 +34,6 @@ composer.phar
 /i.php
 /tests/
 /test/
-/*.md
-!/README.md
 /*.sh
 /typo3conf/AdditionalConfiguration_custom.php
 /typo3conf/ext/theme/Configuration/TypoScript/Custom/custom_constants.txt
