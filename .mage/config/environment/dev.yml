@@ -19,4 +19,5 @@ tasks:
   on-deploy:
   post-release:
     - typo3-release
+    - typo3-console: {command: cache:flush}
   post-deploy:

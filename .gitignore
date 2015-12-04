@@ -6,6 +6,7 @@
 .vagrant
 atlassian-ide-plugin.xml
 composer.phar
+composer.lock
 
 # Core
 # -----------------------------------------------------------------------------
