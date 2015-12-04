@@ -25,10 +25,9 @@ The file `environment/dev.yml` defines the deployment to your dev environment:
 ```
 deployment:
   strategy: rsync
-  user: www
+  user: root
   from: ./.mage/artifact/
   to: /var/www/deploy
-  http-frontend: 'http://your-url.com/'
   document-root: '/var/www/html'
 releases:
   enabled: true
@@ -37,19 +36,20 @@ releases:
   directory: releases
 hosts:
   - "your-url.com"
-tasks:
   pre-deploy:
-    - typo3-artifact
+    - typo3-artifact:
+        excludes:
+          - /fileadmin
+          - /uploads
   on-deploy:
   post-release:
-    - typo3-release
+    - clear-op-cache: {frontend-url: 'https://your-url.com'}
   post-deploy:
 ```
 
 Some words on the configuration you **must** change to your specific setup:
 - deployment.user: Define the user which is used for calling all remote bash calls
 - deployment.to: Define a directory which is used to deploy the project on your host(s).
-- deployment.http-frontend: URL of your project which is used to clear APC cache.
 - deployment.document-root: your document root
 - hosts: URL to your host, connection will be done with ssh keys.
 

@@ -1,7 +1,7 @@
 #dev
 deployment:
   strategy: rsync
-  user: www
+  user: root
   from: ./.mage/artifact/
   to: /var/www/deploy
   document-root: '/var/www/html'
@@ -12,12 +12,29 @@ releases:
   directory: releases
 hosts:
   - "your-url.com"
-tasks:
   pre-deploy:
-    - typo3-artifact
+    - typo3-artifact:
+        excludes:
+          - /bin
+          - /deployment
+          - /fileadmin
+          - /typo3
+          - /typo3temp
+          - /uploads
+          - composer.lock
+          - /composer.json
+          - /index.php
+          - typo3conf/LocalConfiguration.php
+          - atlassian-ide-plugin.xml
+          - .editorconfig
+          - .git*
+          - .idea
+          - .mage
+          - .vagrant
+          - bower_components
+          - node_modules
+          - Vagrantfile
   on-deploy:
   post-release:
-    - typo3-release
-    - clear-op-cache: {frontend-url: 'http://your-url.com'}
-    - typo3-console: {command: cache:flush}
+    - clear-op-cache: {frontend-url: 'https://your-url.com'}
   post-deploy:
