@@ -12,6 +12,7 @@ releases:
   directory: releases
 hosts:
   - "your-url.com"
+tasks:
   pre-deploy:
     - typo3-artifact:
         excludes:
