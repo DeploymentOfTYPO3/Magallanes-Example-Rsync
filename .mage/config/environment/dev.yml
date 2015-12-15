@@ -36,6 +36,12 @@ tasks:
           - node_modules
           - Vagrantfile
   on-deploy:
+    - filesystem/permissions-writable-by-web-server:
+        paths:
+            - /var/www/deploy
+            - /var/www/html
+        recursive: true
+        checkPathsExist: true
   post-release:
     - clear-op-cache: {frontend-url: 'https://your-url.com'}
   post-deploy:
